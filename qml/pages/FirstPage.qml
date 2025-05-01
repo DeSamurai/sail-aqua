@@ -78,14 +78,14 @@ Page {
                 text: qsTr("Settings")
                 onClicked: pageStack.push(Qt.resolvedUrl("Settings.qml"))
             }
-            MenuItem {
-                text: qsTr("Second")
-                onClicked: pageStack.push(Qt.resolvedUrl("SecondPage.qml"))
-            }
-            MenuItem {
-                text: qsTr("Edit mode")
-                onClicked: pageStack.push(Qt.resolvedUrl("EditMode.qml"))
-            }
+//            MenuItem {
+//                text: qsTr("Second")
+//                onClicked: pageStack.push(Qt.resolvedUrl("SecondPage.qml"))
+//            }
+//            MenuItem {
+//                text: qsTr("Edit mode")
+//                onClicked: pageStack.push(Qt.resolvedUrl("EditMode.qml"))
+//            }
             MenuItem {
                 text: qsTr("Statistics")
                 onClicked: pageStack.push(Qt.resolvedUrl("Stat.qml"))

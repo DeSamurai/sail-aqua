@@ -9,7 +9,7 @@ function yest() {
 }
 
 function getDatabase() {
-    return LocalStorage.openDatabaseSync("Aqua", "1.0", "StorageDatabase", 10000000);
+    return LocalStorage.openDatabaseSync("aqua", "1.0", "StorageDatabase", 10000000);
 }
 
 function getAmount(day) {
