@@ -17,7 +17,10 @@ CONFIG += sailfishapp_qml
 DISTFILES += qml/SailAqua.qml \
     qml/cover/CoverPage.qml \
     qml/pages/FirstPage.qml \
+    qml/pages/FirstPageMethods.js \
+    qml/pages/FirstPage_copy.qml \
     qml/pages/SecondPage.qml \
+    qml/pages/Utilities.js \
     rpm/SailAqua.changes.in \
     rpm/SailAqua.changes.run.in \
     rpm/SailAqua.spec \
