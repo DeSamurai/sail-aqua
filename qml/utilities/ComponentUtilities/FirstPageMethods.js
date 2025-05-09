@@ -1,5 +1,5 @@
-function percent(targetCount, getAm) {
-    var numb = getAm() / targetCount() * 100
+function percent() {
+    var numb = Util.getAm() / Util.targetCount() * 100
     numb = numb.toFixed(0)
     if (numb >= 0) {
         return percentage.text = "That's "+ numb + " % of your target."
@@ -8,8 +8,8 @@ function percent(targetCount, getAm) {
     }
 }
 
-function targetToday(targetCount) {
-    var tg = targetCount()
+function targetToday() {
+    var tg = Util.targetCount()
     if (tg >= 0) {
        target.text = "Your target is "+ tg +" ml."
        return target.text;
@@ -18,18 +18,18 @@ function targetToday(targetCount) {
     }
 }
 
-function textToday(getAm) {
-    return today.text = "Consumed today "+getAm()+" ml.";
+function textToday() {
+    return today.text = "Consumed today "+Util.getAm()+" ml.";
 }
 
-function send(amountOfWater, getAm, targetCount) {
+function send(amountOfWater) {
     if (choose === 0) {
         DB.addAmount(DB.today(),amountOfWater)
     } else {
         DB.addAmount(DB.yest(),amountOfWater)
     }
-    textToday(getAm)
-    percent(targetCount, getAm)
+    textToday(Util.getAm)
+    percent(Util.targetCount, Util.getAm)
 }
 
 function del(amountOfWater) {
