@@ -21,7 +21,7 @@ Page {
 
         PageHeader {
             id: header
-            title: qsTr("Statistics")
+            title: qsTr("History")
         }
         SilicaListView {
             id: listview

@@ -19,11 +19,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Statistics</source>
+        <source>Sailaqua</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Sailaqua</source>
+        <source>History</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>History</name>
+    <message>
+        <source>History</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -31,13 +38,6 @@
     <name>Settings</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Stat</name>
-    <message>
-        <source>Statistics</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

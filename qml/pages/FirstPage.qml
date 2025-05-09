@@ -32,8 +32,8 @@ Page {
             //                onClicked: pageStack.push(Qt.resolvedUrl("EditMode.qml"))
             //            }
             MenuItem {
-                text: qsTr("Statistics")
-                onClicked: pageStack.push(Qt.resolvedUrl("Stat.qml"))
+                text: qsTr("History")
+                onClicked: pageStack.push(Qt.resolvedUrl("History.qml"))
             }
         }
 
