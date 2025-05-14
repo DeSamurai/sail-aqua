@@ -149,33 +149,33 @@ function addYou(weight) {
     return res;
 }
 
-function addButtons(button) {
-    var db = getDatabase();
-    var res = ""
-    var rs = "";
-    db.transaction(function(tx) {
-        try {
-            if (getButtons() === 0) {
-                tx.executeSql('CREATE TABLE IF NOT EXISTS buttons(button INTEGER)');
-                rs = tx.executeSql('INSERT INTO buttons VALUES(?)', [button]);
-            } else {
-                tx.executeSql('DROP TABLE buttons');
-                tx.executeSql('CREATE TABLE IF NOT EXISTS buttons(button INTEGER)');
-                rs = tx.executeSql('INSERT INTO buttons VALUES(?)', [button]);
-            }
-        } catch (err) {
-            tx.executeSql('CREATE TABLE IF NOT EXISTS buttons(button INTEGER)');
-            rs = tx.executeSql('INSERT INTO buttons VALUES(?)', [button]);
-        }
+//function addButtons(button) {
+//    var db = getDatabase();
+//    var res = ""
+//    var rs = "";
+//    db.transaction(function(tx) {
+//        try {
+//            if (getButtons() === 0) {
+//                tx.executeSql('CREATE TABLE IF NOT EXISTS buttons(button INTEGER)');
+//                rs = tx.executeSql('INSERT INTO buttons VALUES(?)', [button]);
+//            } else {
+//                tx.executeSql('DROP TABLE buttons');
+//                tx.executeSql('CREATE TABLE IF NOT EXISTS buttons(button INTEGER)');
+//                rs = tx.executeSql('INSERT INTO buttons VALUES(?)', [button]);
+//            }
+//        } catch (err) {
+//            tx.executeSql('CREATE TABLE IF NOT EXISTS buttons(button INTEGER)');
+//            rs = tx.executeSql('INSERT INTO buttons VALUES(?)', [button]);
+//        }
 
-        if (rs.rowsAffected > 0) {
-            res = "OK";
-        } else {
-            res = "Error";
-        }
-    });
-    return res;
-}
+//        if (rs.rowsAffected > 0) {
+//            res = "OK";
+//        } else {
+//            res = "Error";
+//        }
+//    });
+//    return res;
+//}
 
 function addAmount(day,amount) {
     var db = getDatabase();
