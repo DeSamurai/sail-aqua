@@ -11,10 +11,10 @@ function percent() {
 function targetToday() {
     var tg = Util.targetCount()
     if (tg >= 0) {
-       target.text = "Your target is "+ tg +" ml."
-       return target.text;
+        target.text = "Your target is "+ tg +" ml."
+        return target.text;
     } else {
-       return target.text = ""
+        return target.text = ""
     }
 }
 
@@ -40,4 +40,16 @@ function del(amountOfWater) {
     }
     textToday()
     percent()
+}
+
+function onStatusChanged() {
+    if (status === Cover.Active) {
+        loadPageData()
+    }
+}
+
+function loadPageData() {
+    today.text = textToday()
+    percentage.text = percent()
+    target.text = targetToday()
 }

@@ -1,5 +1,6 @@
 function getAm() {
     var amount = DB.getAmount(DB.today())
+
     if (amount >= 0) {
         return amount;
     } else {
@@ -8,5 +9,5 @@ function getAm() {
 }
 
 function targetCount() {
-    return DB.getWeight() * 33
+    return settingsManager.weight * 33
 }

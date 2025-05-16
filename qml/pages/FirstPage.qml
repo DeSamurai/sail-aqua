@@ -1,15 +1,19 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import QtQuick.LocalStorage 2.0
-
+import "../components/UI"
+import "../components/DataManagers"
 import "../utilities/config.js" as DB
 import "../utilities/Utilities.js" as Util
 import "../utilities/ComponentUtilities/FirstPageMethods.js" as Methods
-import "../components"
 
 Page {
     id: page
     property int choose
+
+    SettingsManager {
+        id: settingsManager
+    }
 
     SilicaFlickable {
         anchors.fill: parent
@@ -23,14 +27,6 @@ Page {
                 text: qsTr("Settings")
                 onClicked: pageStack.push(Qt.resolvedUrl("Settings.qml"))
             }
-            //            MenuItem {
-            //                text: qsTr("Second")
-            //                onClicked: pageStack.push(Qt.resolvedUrl("SecondPage.qml"))
-            //            }
-            //            MenuItem {
-            //                text: qsTr("Edit mode")
-            //                onClicked: pageStack.push(Qt.resolvedUrl("EditMode.qml"))
-            //            }
             MenuItem {
                 text: qsTr("History")
                 onClicked: pageStack.push(Qt.resolvedUrl("History.qml"))
@@ -56,7 +52,6 @@ Page {
                     right: parent.right
                     margins: Theme.paddingLarge
                 }
-                Component.onCompleted: Methods.textToday()
             }
 
             Label {
@@ -67,7 +62,6 @@ Page {
                     right: parent.right
                     margins: Theme.paddingLarge
                 }
-                Component.onCompleted: Methods.percent()
             }
 
             Label {
@@ -78,7 +72,6 @@ Page {
                     right: parent.right
                     margins: Theme.paddingLarge
                 }
-                Component.onCompleted: Methods.targetToday()
             }
 
             Label {
@@ -124,6 +117,9 @@ Page {
             }
         }
     }
+
+    onStatusChanged: Methods.onStatusChanged()
+    Component.onCompleted: Methods.loadPageData()
 }
 
 
