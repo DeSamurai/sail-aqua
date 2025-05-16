@@ -2,18 +2,11 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 import QtQuick.LocalStorage 2.0
 import Nemo.Configuration 1.0
+import "../components/DataManagers"
 
 Page {
-    ConfigurationGroup {
-        id: configManager
-        path: "/apps/harbor-sail-aqua"
-
-        property double weight
-        property string userName
-        property int buttonsAmount
-        property int buttonsGapAmountPerCap
-        property int coverAddButtonAmount
-        property int notificationTimeInterval
+    SettingsManager {
+        id: settingsManager
     }
 
     SilicaFlickable {
@@ -62,7 +55,6 @@ Page {
                 width: page.width
                 focus: true
                 text: "?"
-                Component.onCompleted: userName.text = configManager.userName
             }
 
             TextField {
@@ -74,7 +66,6 @@ Page {
                 focus: true
                 text: "?"
                 validator: RegExpValidator { regExp: /^[0-9]+$/ }
-                Component.onCompleted: weight.text = configManager.weight
             }
 
             SectionHeader {
@@ -90,7 +81,6 @@ Page {
                 focus: true
                 text: "?"
                 validator: RegExpValidator { regExp: /^[2-6]{1}$/ }
-                Component.onCompleted: buttonsAmount.text = configManager.buttonsAmount
             }
 
             TextField {
@@ -102,7 +92,6 @@ Page {
                 focus: true
                 text: "?"
                 validator: RegExpValidator { regExp: /^\d+$/ }
-                Component.onCompleted: buttonsGapAmountPerCap.text = configManager.buttonsGapAmountPerCap
             }
 
             SectionHeader {
@@ -118,7 +107,6 @@ Page {
                 focus: true
                 text: "?"
                 validator: RegExpValidator { regExp: /^\d+$/ }
-                Component.onCompleted: coverAddButtonAmount.text = configManager.coverAddButtonAmount
             }
 
             TextField {
@@ -130,7 +118,6 @@ Page {
                 focus: true
                 text: "?"
                 validator: RegExpValidator { regExp: /^\d+$/ }
-                Component.onCompleted: notificationTimeInterval.text = configManager.notificationTimeInterval
             }
         }
 
@@ -140,8 +127,17 @@ Page {
     }
 
     Component.onCompleted: {
-        if (configManager.weight === 0.0 && configManager.buttonsAmount === "") {
-            setDefaultValues()
+        for (var key in properties) {
+            var value = settingsManager[key]
+
+            if (value === undefined) {
+                var defaultValue = properties[key]
+                settingsManager.setValue(key, defaultValue.default)
+
+                value = settingsManager[key]
+            }
+
+            root[key].text = value
         }
     }
 
@@ -176,10 +172,12 @@ Page {
     function setDefaultValues() {
         for (var key in properties) {
             var value = properties[key]
-            configManager.setValue(key, value.default)
+            settingsManager.setValue(key, value.default)
 
-            root[key].text = configManager[key]
+            root[key].text = settingsManager[key]
         }
+
+        pageStack.navigateBack(PageStackAction.Animated)
     }
 
     function saveSettings() {
@@ -205,7 +203,7 @@ Page {
             break
         }
 
-        configManager.setValue(property, value)
+        settingsManager.setValue(property, value)
     }
 }
 
