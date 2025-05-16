@@ -74,51 +74,6 @@ function getWeight() {
     return amountW
 }
 
-function getButtons() {
-    var db = getDatabase();
-    var amountB="";
-    try {
-        db.transaction(function(tx) {
-            var rs = tx.executeSql('SELECT button FROM buttons');
-            if (rs.rows.length > 0) {
-                amountB += rs.rows.item(0).button
-            } else {
-                amountB = "200,250,300,330,500"
-            }
-        })
-    } catch (err) {
-        amountB = "200,250,300,330,500"
-    }
-    return amountB
-}
-
-function buttonsList(i) {
-    var res = getButtons()
-    var r = res.split(",");
-    var s = ""
-    switch(i) {
-        case 1:
-            s = r[0]
-            break;
-        case 2:
-            s = r[1]
-            break;
-        case 3:
-            s = r[2]
-            break;
-        case 4:
-            s = r[3]
-            break;
-        case 5:
-            s = r[4]
-            break;
-    default:
-        s = r[0]+","+r[1]+","+r[2]+","+r[3]+","+r[4]
-        break;
-    }
-    return s
-}
-
 function addYou(weight) {
     var db = getDatabase();
     var res = ""
@@ -148,34 +103,6 @@ function addYou(weight) {
     });
     return res;
 }
-
-//function addButtons(button) {
-//    var db = getDatabase();
-//    var res = ""
-//    var rs = "";
-//    db.transaction(function(tx) {
-//        try {
-//            if (getButtons() === 0) {
-//                tx.executeSql('CREATE TABLE IF NOT EXISTS buttons(button INTEGER)');
-//                rs = tx.executeSql('INSERT INTO buttons VALUES(?)', [button]);
-//            } else {
-//                tx.executeSql('DROP TABLE buttons');
-//                tx.executeSql('CREATE TABLE IF NOT EXISTS buttons(button INTEGER)');
-//                rs = tx.executeSql('INSERT INTO buttons VALUES(?)', [button]);
-//            }
-//        } catch (err) {
-//            tx.executeSql('CREATE TABLE IF NOT EXISTS buttons(button INTEGER)');
-//            rs = tx.executeSql('INSERT INTO buttons VALUES(?)', [button]);
-//        }
-
-//        if (rs.rowsAffected > 0) {
-//            res = "OK";
-//        } else {
-//            res = "Error";
-//        }
-//    });
-//    return res;
-//}
 
 function addAmount(day,amount) {
     var db = getDatabase();
@@ -211,7 +138,7 @@ function delAmount(day,amount) {
 function deleteButtons() {
     var db = getDatabase();
     db.transaction(
-        function(tx) {
-            tx.executeSql('DROP TABLE buttons');
-        });
+                function(tx) {
+                    tx.executeSql('DROP TABLE buttons');
+                });
 }

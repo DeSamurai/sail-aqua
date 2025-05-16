@@ -96,11 +96,12 @@ Page {
                 anchors.horizontalCenter: parent.horizontalCenter
 
                 Repeater {
-                    model: 5
+                    model: settingsManager.buttonsAmount
                     AddWaterButton {
+                        waterAmount: 200 + index * settingsManager.buttonsGapAmountPerCap
                         onButtonClicked: {
                             deleteRemorse.execute("Cancel adding", function() {
-                                Methods.send(DB.buttonsList(index + 1))
+                                Methods.send(waterAmount)
                             }
                             )
                         }
