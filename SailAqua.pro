@@ -16,6 +16,7 @@ CONFIG += sailfishapp_qml
 
 DISTFILES += qml/SailAqua.qml \
     qml/components/AddWaterButton.qml \
+    qml/components/DataManagers/SettingsManager.qml \
     qml/cover/CoverPage.qml \
     qml/pages/FirstPage.qml \
     qml/pages/FirstPageMethods.js \

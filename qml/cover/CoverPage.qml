@@ -1,10 +1,15 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import QtQuick.LocalStorage 2.0
+import "../components/DataManagers"
 import "../utilities/config.js" as DB
 import "../utilities/Utilities.js" as Util
 
 CoverBackground {
+    SettingsManager {
+        id: settingsManager
+    }
+
     Column {
         spacing: 30
         anchors {
