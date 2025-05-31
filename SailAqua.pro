@@ -18,6 +18,7 @@ DISTFILES += qml/SailAqua.qml \
     qml/components/AddWaterButton.qml \
     qml/components/DataManagers/SettingsManager.qml \
     qml/cover/CoverPage.qml \
+    qml/pages/AddAnotherAmount.qml \
     qml/pages/FirstPage.qml \
     qml/pages/FirstPageMethods.js \
     qml/pages/SecondPage.qml \
