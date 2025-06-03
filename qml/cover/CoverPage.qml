@@ -6,6 +6,8 @@ import "../utilities/config.js" as DB
 import "../utilities/Utilities.js" as Util
 
 CoverBackground {
+    signal addUserWaterAmount()
+
     SettingsManager {
         id: settingsManager
     }
@@ -47,7 +49,8 @@ CoverBackground {
         id: coverAction
 
         CoverAction {
-            iconSource: "image://theme/icon-cover-next"
+            iconSource: "image://theme/icon-cover-new"
+            onTriggered: addUserWaterAmount()
         }
     }
 

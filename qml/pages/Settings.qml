@@ -17,7 +17,7 @@ Page {
         property alias weight: weight
         property alias buttonsAmount: buttonsAmount
         property alias buttonsGapAmountPerCap: buttonsGapAmountPerCap
-        property alias coverAddButtonAmount: coverAddButtonAmount
+//        property alias coverAddButtonAmount: coverAddButtonAmount
         property alias notificationTimeInterval: notificationTimeInterval
 
         PushUpMenu {
@@ -94,19 +94,19 @@ Page {
             }
 
             SectionHeader {
-                text: "Cover and notifications"
+                text: "Notifications"
             }
 
-            TextField {
-                id: coverAddButtonAmount
-                label: "Cover add button water amount (ml)"
-                placeholderText: "Cover add button water amount (ml)"
-                width: page.width
-                inputMethodHints: Qt.ImhDigitsOnly
-                focus: true
-                text: "?"
-                validator: RegExpValidator { regExp: /^\d+$/ }
-            }
+//            TextField {
+//                id: coverAddButtonAmount
+//                label: "Cover add button water amount (ml)"
+//                placeholderText: "Cover add button water amount (ml)"
+//                width: page.width
+//                inputMethodHints: Qt.ImhDigitsOnly
+//                focus: true
+//                text: "?"
+//                validator: RegExpValidator { regExp: /^\d+$/ }
+//            }
 
             TextField {
                 id: notificationTimeInterval
@@ -158,10 +158,10 @@ Page {
                                       type: "int",
                                       default: 50
                                   },
-                                  "coverAddButtonAmount": {
-                                      type: "int",
-                                      default: 200
-                                  },
+//                                  "coverAddButtonAmount": {
+//                                      type: "int",
+//                                      default: 200
+//                                  },
                                   "notificationTimeInterval": {
                                       type: "int",
                                       default: 30

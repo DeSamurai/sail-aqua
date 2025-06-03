@@ -9,6 +9,6 @@ ConfigurationGroup {
     property string userName
     property int buttonsAmount
     property int buttonsGapAmountPerCap
-    property int coverAddButtonAmount
+//    property int coverAddButtonAmount
     property int notificationTimeInterval
 }

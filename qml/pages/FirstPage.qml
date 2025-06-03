@@ -88,23 +88,46 @@ Page {
                 id: deleteRemorse
             }
 
-            Grid {
-                id: buttonsContainer
-                columns: 2
-                rows: 3
+            Column {
                 spacing: Theme.paddingLarge
                 anchors.horizontalCenter: parent.horizontalCenter
 
-                Repeater {
-                    model: settingsManager.buttonsAmount
-                    AddWaterButton {
-                        waterAmount: 200 + index * settingsManager.buttonsGapAmountPerCap
-                        onButtonClicked: {
-                            deleteRemorse.execute("Cancel adding", function() {
-                                Methods.send(waterAmount)
+//                Label {
+//                    text: "Water amount:"
+//                    anchors.left: parent.anchors.left
+//                    color: Theme.highlightColor
+//                    font {
+//                        family: Theme.fontFamilyHeading
+//                        pixelSize: Theme.fontSizeMedium
+//                    }
+//                }
+
+                Grid {
+                    id: buttonsContainer
+                    columns: 2
+                    spacing: Theme.paddingLarge
+                    anchors.horizontalCenter: parent.horizontalCenter
+
+                    Repeater {
+                        model: settingsManager.buttonsAmount
+                        AddWaterButton {
+                            waterAmount: 200 + index * settingsManager.buttonsGapAmountPerCap
+                            onButtonClicked: {
+                                deleteRemorse.execute("Cancel adding", function() {
+                                    Methods.send(waterAmount)
+                                }
+                                )
                             }
-                            )
                         }
+                    }
+                }
+
+                Button {
+                    text: "Add another amount"
+                    onClicked: pageStack.push(Qt.resolvedUrl("AddAnotherWaterAmount.qml"))
+                    anchors {
+                        left: parent.left
+                        right: parent.right
                     }
                 }
             }
