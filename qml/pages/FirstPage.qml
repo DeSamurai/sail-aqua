@@ -9,7 +9,6 @@ import "../utilities/ComponentUtilities/FirstPageMethods.js" as Methods
 
 Page {
     id: page
-    property int choose
 
     SettingsManager {
         id: settingsManager
@@ -92,15 +91,15 @@ Page {
                 spacing: Theme.paddingLarge
                 anchors.horizontalCenter: parent.horizontalCenter
 
-//                Label {
-//                    text: "Water amount:"
-//                    anchors.left: parent.anchors.left
-//                    color: Theme.highlightColor
-//                    font {
-//                        family: Theme.fontFamilyHeading
-//                        pixelSize: Theme.fontSizeMedium
-//                    }
-//                }
+                //                Label {
+                //                    text: "Water amount:"
+                //                    anchors.left: parent.anchors.left
+                //                    color: Theme.highlightColor
+                //                    font {
+                //                        family: Theme.fontFamilyHeading
+                //                        pixelSize: Theme.fontSizeMedium
+                //                    }
+                //                }
 
                 Grid {
                     id: buttonsContainer
@@ -129,14 +128,6 @@ Page {
                         left: parent.left
                         right: parent.right
                     }
-                }
-            }
-
-            TextSwitch {
-                id: yesterday
-                text: "Yesterday"
-                onCheckedChanged: {
-                    checked ? choose = 1 : choose = 0
                 }
             }
         }
