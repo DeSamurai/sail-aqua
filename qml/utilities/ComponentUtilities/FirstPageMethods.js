@@ -23,21 +23,13 @@ function textToday() {
 }
 
 function send(amountOfWater) {
-    if (choose === 0) {
-        DB.addAmount(DB.today(),amountOfWater)
-    } else {
-        DB.addAmount(DB.yest(),amountOfWater)
-    }
+    DB.addAmount(DB.today(),amountOfWater)
     textToday(Util.getAm)
     percent(Util.targetCount, Util.getAm)
 }
 
 function del(amountOfWater) {
-    if (choose === 0) {
-        DB.delAmount(DB.today(),amountOfWater)
-    } else {
-        DB.delAmount(DB.yest(),amountOfWater)
-    }
+    DB.delAmount(DB.today(),amountOfWater)
     textToday()
     percent()
 }
