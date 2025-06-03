@@ -11,15 +11,15 @@ Dialog {
         anchors.fill: root
 
         DialogHeader {
-            title: "Add another amount"
+            title: "Add another water amount"
             defaultAcceptText: "Add"
         }
 
         TextField {
             id: amountOfWater
             focus: true
-            label: "Another value"
-            placeholderText: "Write another value (ml)"
+            label: "Water amount(ml)"
+            placeholderText: "Write water amount(ml)"
             inputMethodHints: Qt.ImhDigitsOnly
         }
     }

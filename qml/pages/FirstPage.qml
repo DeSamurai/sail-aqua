@@ -92,6 +92,16 @@ Page {
                 spacing: Theme.paddingLarge
                 anchors.horizontalCenter: parent.horizontalCenter
 
+//                Label {
+//                    text: "Water amount:"
+//                    anchors.left: parent.anchors.left
+//                    color: Theme.highlightColor
+//                    font {
+//                        family: Theme.fontFamilyHeading
+//                        pixelSize: Theme.fontSizeMedium
+//                    }
+//                }
+
                 Grid {
                     id: buttonsContainer
                     columns: 2
@@ -114,7 +124,7 @@ Page {
 
                 Button {
                     text: "Add another amount"
-                    onClicked: pageStack.push(Qt.resolvedUrl("AddAnotherAmount.qml"))
+                    onClicked: pageStack.push(Qt.resolvedUrl("AddAnotherWaterAmount.qml"))
                     anchors {
                         left: parent.left
                         right: parent.right
